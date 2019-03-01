@@ -57,7 +57,7 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
         tvFling.setText(getResources().getString(R.string.fling_animation));
 
         ImageView ivFade = llFade.findViewById(R.id.iv_category);
-        ivFade.setBackground(ContextCompat.getDrawable(mContext, R.drawable.bg_bball_01));
+        ivFade.setBackground(ContextCompat.getDrawable(mContext, R.drawable.bg_spooky_01));
         ImageView ivFreeFall = llFreeFall.findViewById(R.id.iv_category);
         ivFreeFall.setBackground(ContextCompat.getDrawable(mContext, R.drawable.bg_nature_01));
         ImageView ivScaleSpring = llScaleSpring.findViewById(R.id.iv_category);

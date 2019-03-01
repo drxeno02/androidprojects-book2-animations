@@ -2,6 +2,7 @@
     <string name="app_name">Spring Animation Demo</string>
 
     <!-- main -->
+    <string name="select_animation">Select Animation</string>
     <string name="fade_animation">Fade Animation</string>
     <string name="free_fall_animation">Free Fall Animation</string>
     <string name="scale_spring_animation">Scale Spring Animation</string>

@@ -5,60 +5,61 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:fillViewport="false"
+        android:scrollbars="vertical">
 
-        <!-- header -->
-        <include
-            android:id="@+id/header"
-            layout="@layout/item_header"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <!-- fade -->
-        <include
-            android:id="@+id/category_fade"
-            layout="@layout/item_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <!-- fade -->
+            <include
+                android:id="@+id/category_fade"
+                layout="@layout/item_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <!-- free fall -->
-        <include
-            android:id="@+id/category_free_fall"
-            layout="@layout/item_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <!-- free fall -->
+            <include
+                android:id="@+id/category_free_fall"
+                layout="@layout/item_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <!-- scale spring -->
-        <include
-            android:id="@+id/category_scale_spring"
-            layout="@layout/item_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <!-- scale spring -->
+            <include
+                android:id="@+id/category_scale_spring"
+                layout="@layout/item_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <!-- chained spring -->
-        <include
-            android:id="@+id/category_chained_spring"
-            layout="@layout/item_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <!-- chained spring -->
+            <include
+                android:id="@+id/category_chained_spring"
+                layout="@layout/item_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <!-- translate spring -->
-        <include
-            android:id="@+id/category_translate_spring"
-            layout="@layout/item_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <!-- translate spring -->
+            <include
+                android:id="@+id/category_translate_spring"
+                layout="@layout/item_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <!-- fling -->
-        <include
-            android:id="@+id/category_fling"
-            layout="@layout/item_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <!-- fling -->
+            <include
+                android:id="@+id/category_fling"
+                layout="@layout/item_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
