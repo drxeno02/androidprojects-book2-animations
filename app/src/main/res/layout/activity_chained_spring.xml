@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- header -->
+    <include
+        android:id="@+id/header"
+        layout="@layout/item_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_game_04">
+
+        <!-- pacman -->
+        <ImageView
+            android:id="@+id/iv_pacman"
+            android:layout_width="@dimen/scaling_80"
+            android:layout_height="@dimen/scaling_80"
+            android:src="@drawable/pacman" />
+
+        <!-- ghost -->
+        <ImageView
+            android:id="@+id/iv_ghost_01"
+            android:layout_width="@dimen/scaling_80"
+            android:layout_height="@dimen/scaling_80"
+            android:layout_below="@+id/iv_pacman"
+            android:src="@drawable/ghost_01" />
+
+        <!-- ghost -->
+        <ImageView
+            android:id="@+id/iv_ghost_02"
+            android:layout_width="@dimen/scaling_80"
+            android:layout_height="@dimen/scaling_80"
+            android:layout_below="@+id/iv_ghost_01"
+            android:src="@drawable/ghost_02" />
+
+    </RelativeLayout>
+
+</LinearLayout>

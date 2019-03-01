@@ -28,6 +28,7 @@ public class TranslateSpringAnimationActivity extends BaseFragmentActivity imple
         // instantiate views
         initializeViews();
         initializeHandlers();
+        initializeListeners();
     }
 
     /**
@@ -43,6 +44,29 @@ public class TranslateSpringAnimationActivity extends BaseFragmentActivity imple
         ivPunchingBag = findViewById(R.id.iv_punching_bag);
         ivPunchingBag.setOnTouchListener(onTouchListener);
 
+        // create SpringForce objects and apply to translation animations
+        SpringForce springForceX = new SpringForce(0f);
+        springForceX.setStiffness(SpringForce.STIFFNESS_MEDIUM);
+        springForceX.setDampingRatio(SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY);
+        mSpringTranslationXAnimation.setSpring(springForceX);
+
+        SpringForce springForceY = new SpringForce(0f);
+        springForceY.setStiffness(SpringForce.STIFFNESS_MEDIUM);
+        springForceY.setDampingRatio(SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY);
+        mSpringTranslationYAnimation.setSpring(springForceY);
+    }
+
+    /**
+     * Method is used to initialize click listeners
+     */
+    private void initializeHandlers() {
+        ivBack.setOnClickListener(this);
+    }
+
+    /**
+     * Initialize custom listeners
+     */
+    private void initializeListeners() {
         // final position provided is 0, because we want to ensure translationX/translationY of view
         // from wherever the view moved due to touch gesture to come back to its initial
         // translationX/translationY position which is 0.
@@ -73,24 +97,6 @@ public class TranslateSpringAnimationActivity extends BaseFragmentActivity imple
                         view.setTranslationY(value);
                     }
                 });
-
-        // create SpringForce object and apply to translation animation
-        SpringForce springForceX = new SpringForce(0f);
-        springForceX.setStiffness(SpringForce.STIFFNESS_MEDIUM);
-        springForceX.setDampingRatio(SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY);
-        mSpringTranslationXAnimation.setSpring(springForceX);
-
-        SpringForce springForceY = new SpringForce(0f);
-        springForceY.setStiffness(SpringForce.STIFFNESS_MEDIUM);
-        springForceY.setDampingRatio(SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY);
-        mSpringTranslationYAnimation.setSpring(springForceY);
-    }
-
-    /**
-     * Method is used to initialize click listeners
-     */
-    private void initializeHandlers() {
-        ivBack.setOnClickListener(this);
     }
 
     /**

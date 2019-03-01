@@ -2,6 +2,7 @@ package com.example.springanimationdemo.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.animation.DynamicAnimation;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
@@ -95,6 +96,8 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
             case R.id.category_scale_spring:
                 break;
             case R.id.category_chained_spring:
+                // go to ChainedSpringAnimation Activity
+                goToActivityAnimInFromBottom(mContext, ChainedSpringAnimationActivity.class, null, false);
                 break;
             case R.id.category_translate_spring:
                 // go to TranslateSpringAnimation Activity
