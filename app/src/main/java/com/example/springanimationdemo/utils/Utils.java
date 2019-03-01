@@ -1,9 +1,6 @@
 package com.example.springanimationdemo.utils;
 
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.text.TextUtils;
-import android.util.Patterns;
 
 public class Utils {
 
@@ -30,18 +27,6 @@ public class Utils {
         long mElapsedTimestamp = mCurrClickTimestamp - mLastClickTime;
         mLastClickTime = mCurrClickTimestamp;
         return !(mElapsedTimestamp <= CLICK_THRESHOLD);
-    }
-
-    /**
-     * Method is used to confirm that string parameter is in valid email format
-     *
-     * @param email Email of the user
-     * @return True if email is valid format, otherwise false
-     */
-    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    public static boolean isValidEmail(@Nullable String email) {
-        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches() &&
-                email.substring(email.lastIndexOf(".") + 1).length() > 1;
     }
 
 }

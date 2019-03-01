@@ -1,6 +1,5 @@
 package com.example.springanimationdemo.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -15,7 +14,6 @@ import com.example.springanimationdemo.utils.Utils;
 public class MainActivity extends BaseFragmentActivity implements View.OnClickListener {
 
     private Context mContext;
-    private Activity mActivity;
     private LinearLayout llFade, llFreeFall, llScaleSpring, llChainedSpring, llTranslateSpring, llFling;
 
     @Override
@@ -34,7 +32,6 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
     private void initializeViews() {
         // instantiate context and activity instance
         mContext = MainActivity.this;
-        mActivity = MainActivity.this;
 
         llFade = findViewById(R.id.category_fade);
         llFreeFall = findViewById(R.id.category_free_fall);
@@ -64,8 +61,8 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
         ivScaleSpring.setBackground(ContextCompat.getDrawable(mContext, R.drawable.bg_game_01));
         ImageView ivChainedSpring = llChainedSpring.findViewById(R.id.iv_category);
         ivChainedSpring.setBackground(ContextCompat.getDrawable(mContext, R.drawable.bg_game_03));
-        ImageView ivTranslateSpring  = llTranslateSpring .findViewById(R.id.iv_category);
-        ivTranslateSpring .setBackground(ContextCompat.getDrawable(mContext, R.drawable.bg_boxring_01));
+        ImageView ivTranslateSpring = llTranslateSpring.findViewById(R.id.iv_category);
+        ivTranslateSpring.setBackground(ContextCompat.getDrawable(mContext, R.drawable.bg_boxring_01));
         ImageView ivFling = llFling.findViewById(R.id.iv_category);
         ivFling.setBackground(ContextCompat.getDrawable(mContext, R.drawable.bg_bball_01));
     }
@@ -74,8 +71,12 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
      * Method is used to initialize click listeners
      */
     private void initializeHandlers() {
-
-
+        llFade.setOnClickListener(this);
+        llFreeFall.setOnClickListener(this);
+        llScaleSpring.setOnClickListener(this);
+        llChainedSpring.setOnClickListener(this);
+        llTranslateSpring.setOnClickListener(this);
+        llFling.setOnClickListener(this);
     }
 
     @Override
@@ -86,6 +87,8 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
 
         switch (v.getId()) {
             case R.id.category_fade:
+                // go to TranslateSpringAnimation Activity
+                goToActivityAnimInFromBottom(mContext, TranslateSpringAnimationActivity.class, null, false);
                 break;
             case R.id.category_free_fall:
                 break;
@@ -94,6 +97,8 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
             case R.id.category_chained_spring:
                 break;
             case R.id.category_translate_spring:
+                // go to TranslateSpringAnimation Activity
+                goToActivityAnimInFromBottom(mContext, TranslateSpringAnimationActivity.class, null, false);
                 break;
             case R.id.category_fling:
                 break;

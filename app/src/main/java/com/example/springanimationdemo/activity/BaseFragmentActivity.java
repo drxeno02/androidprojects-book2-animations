@@ -1,5 +1,7 @@
 package com.example.springanimationdemo.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -85,6 +87,32 @@ public class BaseFragmentActivity extends AppCompatActivity {
      */
     public void popBackStack(String name) {
         mFragmentManager.popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    }
+
+    /**
+     * Method is used to re-direct to different Activity from a fragment with a
+     * transition animation slide in from bottom of screen
+     *
+     * @param context          Interface to global information about an application environment
+     * @param activity         The in-memory representation of a Java class
+     * @param isClearBackStack True to clear Activity backstack, otherwise false
+     */
+    public void goToActivityAnimInFromBottom(@NonNull Context context, @NonNull Class<?> activity,
+                                             Intent intent, boolean isClearBackStack) {
+        Intent i;
+        if (intent == null) {
+            i = new Intent(context, activity);
+        } else {
+            i = intent;
+        }
+        if (isClearBackStack) {
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        } else {
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        }
+        startActivity(i);
+        // transition animation
+        overridePendingTransition(R.anim.slide_in_from_bottom, R.anim.slide_out_from_bottom);
     }
 
 }
