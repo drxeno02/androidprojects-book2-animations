@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Spring Animation Demo</string>
+
+    <!-- main -->
+    <string name="fade_animation">Fade Animation</string>
+    <string name="free_fall_animation">Free Fall Animation</string>
+    <string name="scale_spring_animation">Scale Spring Animation</string>
+    <string name="chained_spring_animation">Chained Spring Animation</string>
+    <string name="translate_spring_animation">Translate Spring Animation</string>
+    <string name="fling_animation">Fling Animation</string>
 </resources>
