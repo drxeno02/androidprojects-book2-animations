@@ -41,6 +41,14 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
+        <!-- Scale Spring Animation -->
+        <activity
+            android:name=".activity.ScaleSpringAnimationActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+
+
 
     </application>
 
