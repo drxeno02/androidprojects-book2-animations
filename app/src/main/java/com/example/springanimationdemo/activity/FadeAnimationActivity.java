@@ -41,7 +41,6 @@ public class FadeAnimationActivity extends BaseFragmentActivity implements View.
         llWrapper.setBackground(ContextCompat.getDrawable(this, R.drawable.bg_spooky_02));
         ivGhost = findViewById(R.id.iv_generic_object);
         ivGhost.setImageResource(R.drawable.ghost);
-
     }
 
     /**

@@ -2,7 +2,6 @@ package com.example.springanimationdemo.activity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.animation.DynamicAnimation;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
@@ -106,10 +105,11 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
                 goToActivityAnimInFromBottom(mContext, TranslateSpringAnimationActivity.class, null, false);
                 break;
             case R.id.category_fling:
+                // go to TranslateSpringAnimation Activity
+                goToActivityAnimInFromBottom(mContext, TranslateFlingAnimationActivity.class, null, false);
                 break;
             default:
                 break;
         }
-
     }
 }

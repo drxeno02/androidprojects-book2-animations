@@ -48,9 +48,16 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
-        <!-- Scale Spring Animation -->
+        <!-- Fadeg Animation -->
         <activity
             android:name=".activity.FadeAnimationActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+
+        <!-- Fling Animation -->
+        <activity
+            android:name=".activity.TranslateFlingAnimationActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
