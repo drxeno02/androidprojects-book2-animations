@@ -89,7 +89,7 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.category_fade:
                 // go to TranslateSpringAnimation Activity
-                goToActivityAnimInFromBottom(mContext, TranslateSpringAnimationActivity.class, null, false);
+                goToActivityAnimInFromBottom(mContext, FadeAnimationActivity.class, null, false);
                 break;
             case R.id.category_free_fall:
                 break;

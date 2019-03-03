@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Spring Animation Demo</string>
+    <string name="app_name">Animation Demo</string>
 
     <!-- main -->
     <string name="select_animation">Select Animation</string>
