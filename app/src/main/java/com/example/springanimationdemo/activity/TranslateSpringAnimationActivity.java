@@ -51,7 +51,7 @@ public class TranslateSpringAnimationActivity extends BaseFragmentActivity imple
         ivPunchingBag = findViewById(R.id.iv_generic_object);
         ivPunchingBag.setOnTouchListener(onTouchListener);
         ivPunchingBag.setImageResource(R.drawable.punching_bag);
-        Log.v("DATMUG", "translation x= " + SpringAnimation.TRANSLATION_X.toString());
+
         // final position provided is 0, because we want to ensure translationX/translationY of view
         // from wherever the view moved due to touch gesture to come back to its initial
         // translationX/translationY position which is 0.
