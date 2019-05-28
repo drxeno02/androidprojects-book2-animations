@@ -48,7 +48,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
-        <!-- Fadeg Animation -->
+        <!-- Fade Animation -->
         <activity
             android:name=".activity.FadeAnimationActivity"
             android:configChanges="orientation|screenSize"
@@ -58,6 +58,13 @@
         <!-- Fling Animation -->
         <activity
             android:name=".activity.TranslateFlingAnimationActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+
+        <!-- FreeFall Animation -->
+        <activity
+            android:name=".activity.FreeFallSpringAnimationActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />

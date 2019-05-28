@@ -22,6 +22,48 @@ public class TranslateFlingAnimationActivity extends BaseFragmentActivity implem
     private ImageView ivBball, ivBack;
     private int maxTranslationX, maxTranslationY;
 
+    /**
+     * Interface definition for a callback to be invoked when a touch event is dispatched to this view
+     */
+    private GestureDetector.OnGestureListener mGestureListener = new GestureDetector.SimpleOnGestureListener() {
+
+        private static final int MIN_DISTANCE_MOVED = 50;
+        private static final float MIN_TRANSLATION = 0;
+        private static final float FRICTION = 1.5f;
+
+        @Override
+        public boolean onDown(MotionEvent arg0) {
+            return true;
+        }
+
+        @Override
+        public boolean onFling(MotionEvent downEvent, MotionEvent moveEvent, float velocityX, float velocityY) {
+            // downEvent : when user puts his finger down on the view
+            // moveEvent : when user lifts his finger at the end of the movement
+            float distanceInX = Math.abs(moveEvent.getRawX() - downEvent.getRawX());
+            float distanceInY = Math.abs(moveEvent.getRawY() - downEvent.getRawY());
+
+            if (distanceInX > MIN_DISTANCE_MOVED) {
+                // fling right/left
+                FlingAnimation flingX = new FlingAnimation(ivBball, DynamicAnimation.TRANSLATION_X);
+                flingX.setStartVelocity(velocityX)
+                        .setMinValue(MIN_TRANSLATION) // minimum translationX property
+                        .setMaxValue(maxTranslationX)  // maximum translationX property
+                        .setFriction(FRICTION)
+                        .start();
+            } else if (distanceInY > MIN_DISTANCE_MOVED) {
+                // fling down/up
+                FlingAnimation flingY = new FlingAnimation(ivBball, DynamicAnimation.TRANSLATION_Y);
+                flingY.setStartVelocity(velocityY)
+                        .setMinValue(MIN_TRANSLATION)  // minimum translationY property
+                        .setMaxValue(maxTranslationY) // maximum translationY property
+                        .setFriction(FRICTION)
+                        .start();
+            }
+            return true;
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,48 +123,6 @@ public class TranslateFlingAnimationActivity extends BaseFragmentActivity implem
             }
         });
     }
-
-    /**
-     * Interface definition for a callback to be invoked when a touch event is dispatched to this view
-     */
-    private GestureDetector.OnGestureListener mGestureListener = new GestureDetector.SimpleOnGestureListener() {
-
-        private static final int MIN_DISTANCE_MOVED = 50;
-        private static final float MIN_TRANSLATION = 0;
-        private static final float FRICTION = 1.5f;
-
-        @Override
-        public boolean onDown(MotionEvent arg0) {
-            return true;
-        }
-
-        @Override
-        public boolean onFling(MotionEvent downEvent, MotionEvent moveEvent, float velocityX, float velocityY) {
-            // downEvent : when user puts his finger down on the view
-            // moveEvent : when user lifts his finger at the end of the movement
-            float distanceInX = Math.abs(moveEvent.getRawX() - downEvent.getRawX());
-            float distanceInY = Math.abs(moveEvent.getRawY() - downEvent.getRawY());
-
-            if (distanceInX > MIN_DISTANCE_MOVED) {
-                // fling right/left
-                FlingAnimation flingX = new FlingAnimation(ivBball, DynamicAnimation.TRANSLATION_X);
-                flingX.setStartVelocity(velocityX)
-                        .setMinValue(MIN_TRANSLATION) // minimum translationX property
-                        .setMaxValue(maxTranslationX)  // maximum translationX property
-                        .setFriction(FRICTION)
-                        .start();
-            } else if (distanceInY > MIN_DISTANCE_MOVED) {
-                // fling down/up
-                FlingAnimation flingY = new FlingAnimation(ivBball, DynamicAnimation.TRANSLATION_Y);
-                flingY.setStartVelocity(velocityY)
-                        .setMinValue(MIN_TRANSLATION)  // minimum translationY property
-                        .setMaxValue(maxTranslationY) // maximum translationY property
-                        .setFriction(FRICTION)
-                        .start();
-            }
-            return true;
-        }
-    };
 
     @Override
     public void onClick(View v) {

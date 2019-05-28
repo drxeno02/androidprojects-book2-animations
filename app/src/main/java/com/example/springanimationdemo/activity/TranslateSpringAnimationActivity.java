@@ -6,7 +6,6 @@ import android.support.animation.FloatPropertyCompat;
 import android.support.animation.SpringAnimation;
 import android.support.animation.SpringForce;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,6 +24,37 @@ public class TranslateSpringAnimationActivity extends BaseFragmentActivity imple
     private SpringAnimation mSpringTranslationXAnimation, mSpringTranslationYAnimation;
     private ImageView ivPunchingBag, ivBack;
     private float mXDiffInTouchPoint, mYDiffInTouchPoint;
+
+    /**
+     * Interface definition for a callback to be invoked when a touch event is dispatched to this view
+     */
+    private View.OnTouchListener onTouchListener = new View.OnTouchListener() {
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    // calculate the difference between touch point(event.getRawX()) on view & view's top left corner(v.getX())
+                    mXDiffInTouchPoint = event.getRawX() - v.getX();
+                    mYDiffInTouchPoint = event.getRawY() - v.getY();
+                    // cancel spring animations
+                    mSpringTranslationXAnimation.cancel();
+                    mSpringTranslationYAnimation.cancel();
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    float newTopLeftX = event.getRawX() - mXDiffInTouchPoint;
+                    float newTopLeftY = event.getRawY() - mYDiffInTouchPoint;
+                    ivPunchingBag.setX(newTopLeftX);
+                    ivPunchingBag.setY(newTopLeftY);
+                    break;
+                case MotionEvent.ACTION_UP:
+                    mSpringTranslationXAnimation.start();
+                    mSpringTranslationYAnimation.start();
+                    break;
+            }
+            return true;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,37 +131,6 @@ public class TranslateSpringAnimationActivity extends BaseFragmentActivity imple
     private void initializeHandlers() {
         ivBack.setOnClickListener(this);
     }
-
-    /**
-     * Interface definition for a callback to be invoked when a touch event is dispatched to this view
-     */
-    private View.OnTouchListener onTouchListener = new View.OnTouchListener() {
-
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_DOWN:
-                    // calculate the difference between touch point(event.getRawX()) on view & view's top left corner(v.getX())
-                    mXDiffInTouchPoint = event.getRawX() - v.getX();
-                    mYDiffInTouchPoint = event.getRawY() - v.getY();
-                    // cancel spring animations
-                    mSpringTranslationXAnimation.cancel();
-                    mSpringTranslationYAnimation.cancel();
-                    break;
-                case MotionEvent.ACTION_MOVE:
-                    float newTopLeftX = event.getRawX() - mXDiffInTouchPoint;
-                    float newTopLeftY = event.getRawY() - mYDiffInTouchPoint;
-                    ivPunchingBag.setX(newTopLeftX);
-                    ivPunchingBag.setY(newTopLeftY);
-                    break;
-                case MotionEvent.ACTION_UP:
-                    mSpringTranslationXAnimation.start();
-                    mSpringTranslationYAnimation.start();
-                    break;
-            }
-            return true;
-        }
-    };
 
     @Override
     public void onClick(View v) {

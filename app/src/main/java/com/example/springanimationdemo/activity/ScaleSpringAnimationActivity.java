@@ -27,6 +27,27 @@ public class ScaleSpringAnimationActivity extends BaseFragmentActivity implement
     private ImageView ivMario, ivBack;
     private MediaPlayer mMediaPlayer;
 
+    /**
+     * Interface definition for a callback to be invoked when a touch event is dispatched to this view
+     */
+    private View.OnTouchListener onTouchListener = new View.OnTouchListener() {
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                mScaleXAnimation.start();
+                mScaleYAnimation.start();
+            } else {
+                // cancel animations so we can grab the view during previous animation
+                mScaleXAnimation.cancel();
+                mScaleYAnimation.cancel();
+                // pass touch event to ScaleGestureDetector
+                mScaleGestureDetector.onTouchEvent(event);
+            }
+            return true;
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,27 +139,6 @@ public class ScaleSpringAnimationActivity extends BaseFragmentActivity implement
         mMediaPlayer.release();
         super.onDestroy();
     }
-
-    /**
-     * Interface definition for a callback to be invoked when a touch event is dispatched to this view
-     */
-    private View.OnTouchListener onTouchListener = new View.OnTouchListener() {
-
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            if (event.getAction() == MotionEvent.ACTION_UP) {
-                mScaleXAnimation.start();
-                mScaleYAnimation.start();
-            } else {
-                // cancel animations so we can grab the view during previous animation
-                mScaleXAnimation.cancel();
-                mScaleYAnimation.cancel();
-                // pass touch event to ScaleGestureDetector
-                mScaleGestureDetector.onTouchEvent(event);
-            }
-            return true;
-        }
-    };
 
     @Override
     public void onClick(View v) {

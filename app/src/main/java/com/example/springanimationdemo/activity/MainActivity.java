@@ -91,6 +91,8 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
                 goToActivityAnimInFromBottom(mContext, FadeAnimationActivity.class, null, false);
                 break;
             case R.id.category_free_fall:
+                // go to FreeFallSpringAnimation Activity
+                goToActivityAnimInFromBottom(mContext, FreeFallSpringAnimationActivity.class, null, false);
                 break;
             case R.id.category_scale_spring:
                 // go to ScaleSpringAnimation Activity

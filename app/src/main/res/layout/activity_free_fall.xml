@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- header -->
+    <include
+        android:id="@+id/header"
+        layout="@layout/item_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_nature_02"
+        android:paddingStart="@dimen/scaling_20"
+        android:paddingLeft="@dimen/scaling_20"
+        android:paddingTop="@dimen/scaling_40"
+        android:paddingEnd="@dimen/scaling_20"
+        android:paddingRight="@dimen/scaling_20"
+        android:paddingBottom="@dimen/scaling_40">
+
+        <!-- rock left -->
+        <ImageView
+            android:id="@+id/iv_rock_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/rock_01" />
+
+        <!-- rock middle -->
+        <ImageView
+            android:id="@+id/iv_rock_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/rock_02" />
+
+        <!-- rock right -->
+        <ImageView
+            android:id="@+id/iv_rock_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/rock_03" />
+
+        <!-- free fall button; will animate all rocks simultaneously -->
+        <TextView
+            android:id="@+id/tv_free_fall"
+            android:layout_width="@dimen/scaling_100"
+            android:layout_height="@dimen/scaling_40"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/scaling_40"
+            android:background="@drawable/pill_black_5_rad"
+            android:gravity="center"
+            android:text="@string/free_fall"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_20" />
+
+    </RelativeLayout>
+
+</LinearLayout>
